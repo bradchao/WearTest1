@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
                 public void onConnected(@Nullable Bundle bundle) {
                     mbResolvingGoogleApiCLientError = false;
                     Log.v("brad", "onConnected");
-                    //Wearable.MessageApi.addListener(mGoogleApiClient, wearableMsgListener);
+                    Wearable.MessageApi.addListener(mGoogleApiClient, wearableMsgListener);
                 }
 
                 @Override
@@ -105,8 +105,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         if (!mbResolvingGoogleApiCLientError){
-//            Wearable.MessageApi.removeListener(mGoogleApiClient,
-//                    wearableMsgListener);
+            Wearable.MessageApi.removeListener(mGoogleApiClient,
+                    wearableMsgListener);
             mGoogleApiClient.disconnect();
         }
         super.onStop();
